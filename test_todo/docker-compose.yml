@@ -1,0 +1,10 @@
+version: '3'
+services:
+  todomvc:
+    container_name: todomvc
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: todomvc:latest
+    ports:
+      - "2015:2015"
