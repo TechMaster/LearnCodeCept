@@ -7,4 +7,4 @@ services:
       dockerfile: Dockerfile
     image: todomvc:latest
     ports:
-      - "2015:2015"
+      - "8080:8080"

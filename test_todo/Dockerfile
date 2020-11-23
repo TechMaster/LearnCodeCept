@@ -8,10 +8,12 @@ RUN apk add --no-cache bash libcap nodejs npm \
 && setcap CAP_NET_BIND_SERVICE=+eip /usr/lib/node_modules/http-server/bin/http-server \
 && apk del bash libcap
 
-EXPOSE 2015
+EXPOSE 8080
 WORKDIR /todomvc
 
 COPY "./todomvc/" "/todomvc/"
+
+RUN npm install
 
 RUN chown -R nodes:nodes /todomvc
 

@@ -3,8 +3,8 @@ exports.config = {
   output: './output',
   helpers: {
     Puppeteer: {
-      //url: 'http://localhost:2015', //Không cần có trail back slash /
-      url: 'http://todomvc.com/examples/react/#/',
+      url: 'http://localhost:8080', //Không cần có trail back slash /
+      //url: 'http://todomvc.com/examples/react/#/',
       show: true,
       waitForAction: 800
     }
