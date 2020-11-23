@@ -7,8 +7,7 @@ Có 2 cách để kiểm thử:
 1. Trỏ trực tiếp vào web site http://todomvc.com/
 2. Cài Docker rồi khởi động todomvc app ở cổng http://localhost:8080
 
-Để chuyển qua lại giữa 2 cách này chỉ cần vào file codecept.conf.js sửa thuộc tính
-helpers.Puppeteer.url
+Để chuyển qua lại giữa 2 cách này chỉ cần vào file [codecept.conf.js](test/codecept.conf.js) sửa thuộc tính helpers.Puppeteer.url
 
 -  Trỏ trực tiếp todomvc trên Internet: ```helpers.Puppeteer.url=http://todomvc.com/examples/react/#/```
 -  Trỏ todomvc trong docker container cổng 8080: ```helpers.Puppeteer.url=http://localhost:8080```
