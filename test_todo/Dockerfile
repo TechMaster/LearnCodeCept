@@ -1,20 +1,20 @@
 FROM alpine:latest
 
-RUN apk add --no-cache curl bash libcap \
-&& curl curl https://getcaddy.com | bash -s personal \
-&& chmod 0755 /usr/local/bin/caddy \
-&& addgroup -S caddy \
-&& adduser -D -S -H -s /sbin/nologin -G caddy caddy \
-&& setcap CAP_NET_BIND_SERVICE=+eip /usr/local/bin/caddy \
-&& apk del curl bash libcap
+RUN apk add --no-cache bash libcap nodejs npm \
+&& npm install --global http-server \
+&& chmod 0755 /usr/lib/node_modules/http-server/bin/http-server \
+&& addgroup -S nodes \
+&& adduser -D -S -H -s /sbin/nologin -G nodes nodes \
+&& setcap CAP_NET_BIND_SERVICE=+eip /usr/lib/node_modules/http-server/bin/http-server \
+&& apk del bash libcap
 
 EXPOSE 2015
 WORKDIR /todomvc
 
 COPY "./todomvc/" "/todomvc/"
 
-RUN chown -R caddy:caddy /todomvc
+RUN chown -R nodes:nodes /todomvc
 
-USER caddy
+USER nodes
 
-ENTRYPOINT ["/usr/local/bin/caddy"]
+ENTRYPOINT ["/usr/lib/node_modules/http-server/bin/http-server"]
